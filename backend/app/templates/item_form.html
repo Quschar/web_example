@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>条目表单</title>
+</head>
+<body>
+    <h1>{% if form.instance.pk %}编辑条目{% else %}添加新条目{% endif %}</h1>
+    <form method="post">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit">保存</button>
+    </form>
+    <a href="{% url 'item-list-create' %}">返回列表</a>
+</body>
+</html>

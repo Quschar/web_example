@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>条目列表</title>
+</head>
+<body>
+    <h1>条目列表</h1>
+    <a href="{% url 'item-list-create' %}">添加新条目</a>
+    <ul>
+        {% for item in object_list %}
+            <li>
+                {{ item.title }} - {{ item.create_date }}
+                <a href="{% url 'item-detail' item.pk %}">编辑</a>
+            </li>
+        {% endfor %}
+    </ul>
+</body>
+</html>
