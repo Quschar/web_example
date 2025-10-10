@@ -1,5 +1,5 @@
 # 使用 Node.js 官方镜像作为基础环境
-FROM node:18-alpine
+FROM node:22-alpine
 
 # 设置环境变量
 ENV CONTAINER_PATH /frontend
@@ -19,8 +19,8 @@ RUN npm install --legacy-peer-deps
 COPY . .
 
 # 暴露开发服务器端口
-EXPOSE 8080
+EXPOSE 5173
 
 # 启动开发命令（支持热重载）
-CMD ["npm", "run", "build"]
-# CMD ["npm", "run", "serve"]
+# CMD ["npm", "run", "build"]
+CMD ["npm", "run", "dev", "--", "--host", "0.0.0.0"]
