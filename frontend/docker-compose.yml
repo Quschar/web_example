@@ -1,0 +1,11 @@
+version: '3.8'
+
+services:
+  frontend:
+    build: .
+    ports:
+      - "5173:5173"  # 映射开发服务器端口
+    volumes:
+      - .:/app  # 绑定挂载本地代码目录
+      - /app/node_modules  # 排除 node_modules 缓存
+    restart: unless-stopped  # 自动重启策略
